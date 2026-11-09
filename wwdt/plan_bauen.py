@@ -43,7 +43,7 @@ def main() -> None:
     planf = HIER / "plan.json"
     alt = json.loads(planf.read_text(encoding="utf-8"))["posts"] if planf.exists() else []
     jetzt = dt.datetime.now(BERLIN)
-    behalten = [p for p in alt if dt.datetime.fromisoformat(p["dueAt"]) < jetzt]
+    behalten = list(alt)  # bestehende Termine nie verschieben (könnten schon in Buffer stehen)
     start = dt.date.fromisoformat(sys.argv[1]) if len(sys.argv) > 1 else (jetzt + dt.timedelta(days=1)).date()
     schon = {(p["kanal"], p["nr"]) for p in behalten}
     posts = list(behalten)
