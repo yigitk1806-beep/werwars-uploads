@@ -29,13 +29,13 @@ class _Berlin(dt.tzinfo):
 
 BERLIN = _Berlin()
 URL = "https://raw.githubusercontent.com/yigitk1806-beep/werwars-uploads/main/wwdt/videos/"
-UHRZEIT = (18, 0)
+UHRZEIT = {"tiktok": (18, 0), "youtube": (12, 0)}  # YouTube mittags: mehr Klicks (Yusuf, 11.11.2026)
 # Stärkste Videos zuerst (nach YouTube-Aufrufen), danach die neuen
 REIHENFOLGE_TIKTOK = [2, 18, 16, 11, 12, 26, 14, 4, 17, 19, 7, 1, 21, 15, 22, 13, 27, 6, 23, 3, 5, 9, 28, 20, 10, 24, 25, 29, 8, 31, 30, 32]
 
 
-def termin(tag: dt.date) -> str:
-    return dt.datetime(tag.year, tag.month, tag.day, *UHRZEIT, tzinfo=BERLIN).isoformat()
+def termin(tag: dt.date, kanal: str) -> str:
+    return dt.datetime(tag.year, tag.month, tag.day, *UHRZEIT[kanal], tzinfo=BERLIN).isoformat()
 
 
 def main() -> None:
@@ -55,7 +55,7 @@ def main() -> None:
             if (kanal, n) in schon:
                 continue
             v = kat[n]
-            p = {"kanal": kanal, "nr": n, "dueAt": termin(tag), "video": URL + v["datei"]}
+            p = {"kanal": kanal, "nr": n, "dueAt": termin(tag, kanal), "video": URL + v["datei"]}
             if kanal == "tiktok":
                 p["text"] = v["tiktok"]
             else:
