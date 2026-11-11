@@ -47,7 +47,7 @@ def main() -> None:
     start = dt.date.fromisoformat(sys.argv[1]) if len(sys.argv) > 1 else (jetzt + dt.timedelta(days=1)).date()
     schon = {(p["kanal"], p["nr"]) for p in behalten}
     posts = list(behalten)
-    reihe = REIHENFOLGE_TIKTOK + [n for n in sorted(kat) if n not in REIHENFOLGE_TIKTOK]
+    reihe = [n for n in REIHENFOLGE_TIKTOK + [n for n in sorted(kat) if n not in REIHENFOLGE_TIKTOK] if not kat[n].get("schon_auf_tiktok")]
     for kanal, liste in (("tiktok", reihe), ("youtube", [n for n in sorted(kat) if "youtube" in kat[n]])):
         letzte = max([dt.datetime.fromisoformat(p["dueAt"]).date() for p in behalten if p["kanal"] == kanal] + [start - dt.timedelta(days=1)])
         tag = max(start, letzte + dt.timedelta(days=1))
