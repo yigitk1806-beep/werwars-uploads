@@ -55,13 +55,17 @@ def main() -> None:
             if (kanal, n) in schon:
                 continue
             v = kat[n]
-            p = {"kanal": kanal, "nr": n, "dueAt": termin(tag, kanal), "video": URL + v["datei"]}
+            # Fester Termin (Redaktionsplan, z. B. 16:00/19:00-Slots): "youtube": {"termin": "2026-11-16T16:00"}
+            fest = v.get(kanal, {}).get("termin") if isinstance(v.get(kanal), dict) else None
+            due = dt.datetime.fromisoformat(fest).replace(tzinfo=BERLIN).isoformat() if fest else termin(tag, kanal)
+            p = {"kanal": kanal, "nr": n, "dueAt": due, "video": URL + v["datei"]}
             if kanal == "tiktok":
                 p["text"] = v["tiktok"]
             else:
                 p.update(title=v["youtube"]["title"], text=v["youtube"]["text"], categoryId=v["youtube"]["categoryId"])
             posts.append(p)
-            tag += dt.timedelta(days=1)
+            if not fest:
+                tag += dt.timedelta(days=1)
     posts.sort(key=lambda p: (p["dueAt"], p["kanal"]))
     planf.write_text(json.dumps({"kanaele": {"tiktok": "kadirsonsuz5", "youtube": "Was würdest du tun?"}, "posts": posts}, ensure_ascii=False, indent=1), encoding="utf-8")
     for k in ("tiktok", "youtube"):
