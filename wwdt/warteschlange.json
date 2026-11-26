@@ -1,7 +1,31 @@
 {
- "hinweis": "Warteschlange fuer die Cloud-Routine 'Buffer nachfuellen'. Reihenfolge = Prioritaet. Ein Eintrag wird nur eingeplant, wenn sein Video in Buffer noch nicht vorkommt. | 25.11.2026: 26.-29.11. reserviert fuer POV-Filme (Regeln 2, Rotes Licht 2, Bus, Holztransporter), manuell in Buffer; A/B ab 30.11. verschoben.",
+ "hinweis": "Warteschlange fuer die Cloud-Routine 'Buffer nachfuellen'. Reihenfolge = Prioritaet. Ein Eintrag wird nur eingeplant, wenn sein Video in Buffer noch nicht vorkommt. | 25.11.2026: 26.-29.11. reserviert fuer POV-Filme (Regeln 2, Rotes Licht 2, Bus, Holztransporter), manuell in Buffer; A/B ab 30.11. verschoben. | 26.11.2026: POV-Thriller 80-83 fuer TikTok je 21 Uhr am 26.-29.11. vorne eingereiht; YouTube laedt Claude direkt in Studio hoch (Buffer-YT-Tageslimit).",
  "basis_url": "https://raw.githubusercontent.com/yigitk1806-beep/werwars-uploads/main/wwdt/videos/",
  "eintraege": [
+  {
+   "kanal": "tiktok",
+   "dueAt": "2026-11-26T21:00:00+01:00",
+   "datei": "80-tuer-aufmachen.mp4",
+   "text": "Es klingelt um 23:40. Die Stimme klingt genau wie Noahs Mama … aber die schreibt dir gerade, dass sie im Stau steht 😨 Würdest du aufmachen? 👇 #pov #babysitter #gruselig #waswürdestdutun #fyp"
+  },
+  {
+   "kanal": "tiktok",
+   "dueAt": "2026-11-27T21:00:00+01:00",
+   "datei": "81-amok-mathe.mp4",
+   "text": "Mitten in Mathe: ein Knall, dann der Code 😨 Draußen ruft jemand „Polizei“ – aber deine Freundin sieht kein einziges Polizeiauto. A: Tür aufmachen oder B: drin bleiben? 👇 #pov #schule #waswürdestdutun #fyp"
+  },
+  {
+   "kanal": "tiktok",
+   "dueAt": "2026-11-28T21:00:00+01:00",
+   "datei": "82-falsches-taxi.mp4",
+   "text": "Der Fahrer kennt deinen Namen … aber die App sagt: dein Fahrer kommt erst in 6 Minuten 😨 A: laut 110 anrufen oder B: nach vorne und raus? 👇 #pov #taxi #waswürdestdutun #fyp"
+  },
+  {
+   "kanal": "tiktok",
+   "dueAt": "2026-11-29T21:00:00+01:00",
+   "datei": "83-blackout-wasser.mp4",
+   "text": "Tag 2 ohne Strom. Noch 2 Flaschen Wasser. Dann klopft der alte Nachbar: „Nur ein Glas …“ A: Wasser teilen oder B: Tür zu? 👇 #blackout #stromausfall #pov #waswürdestdutun #fyp"
+  },
   {
    "kanal": "youtube",
    "dueAt": "2026-11-13T18:00:00+01:00",
